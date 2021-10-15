@@ -12,44 +12,25 @@
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
-Mod zzz-default-settings
-
+#Mod zzz-default-settings
 pushd package/emortal/default-settings/files
-
 sed -i '/http/d' zzz-default-settings
-
 sed -i '/openwrt_luci/d' zzz-default-settings
-
 export orig_version=$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')
-
 export date_version=$(date -d "$(rdate -n -4 -p ntp.aliyun.com)" +'%Y-%m-%d')
-
 sed -i "s/${orig_version}/${orig_version} (${date_version})/g" zzz-default-settings
-
 popd
-
 # Clone community packages to package/community
-
 mkdir package/community
-
 pushd package/community
-
 # Add luci-app-dnsfilter
-
 git clone --depth=1 https://github.com/garypang13/luci-app-dnsfilter
-
 # Add luci-app-bypass
-
 git clone --depth=1 https://github.com/garypang13/luci-app-bypass
-
 git clone --depth=1 https://github.com/garypang13/smartdns-le
-
 # Add luci-app-godproxy
-
 git clone --depth=1 https://github.com/project-lede/luci-app-godproxy
-
 # Add luci-app-modeminfo
-
 git clone --depth=1 https://github.com/koshev-msk/luci-app-modeminfo
 
 # Add luci-app-tcpdump
