@@ -34,9 +34,9 @@ env:
 
   REPO_BRANCH: openwrt-18.06-k5.4
 
-  CONFIG_FILE: config/x86/x86_64-openwrt-target.config
+  CONFIG_FILE: x86_64-openwrt-target.config
 
-  DIY_SH: scripts/project-openwrt.sh
+  DIY_SH: project-openwrt.sh
 
   WEBROOT: /data/dnmp/www/openwrt.cc
 
