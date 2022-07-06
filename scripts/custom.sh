@@ -19,7 +19,7 @@ popd
 
 # Rename hostname to OpenWrt
 pushd package/base-files/files/bin
-sed -i 's/ImmortalWrt/OpenWrt/g' config_generate
+sed -i 's/coolsnowwolf/lede/g' config_generate
 popd
 
 # Change default shell to zsh
