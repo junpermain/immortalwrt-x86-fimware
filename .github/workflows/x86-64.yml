@@ -151,7 +151,7 @@ jobs:
 
       - name: Upload Toolchain Image To Artifact
         if: env.TOOLCHAIN_RELEASE_UPLOAD != 'true' && steps.hash.outputs.REBUILD_TOOLCHAIN == 'true'
-        uses: actions/upload-artifact@main
+        uses: ncipollo/release-action@v1.8.0
         with:
           name: ${{ env.TOOLCHAIN_IMAGE }}
           path: output
